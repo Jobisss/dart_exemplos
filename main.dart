@@ -2,11 +2,11 @@
 import 'dart:io';
 
 void main() { 
-  List<String> nomes = [];
+  List<String> nomes = ["João", "Alvaro", "gustavo", "Matheus", "Lucas"];
   bool operacao = true;
   while(operacao == true){
     print("Adicione nomes para uma lista !  ");
-    print("operações possiveis: Adicionar nome : 1 , Retirar nome: 2 , Buscar nome : 3 , Exibir lista : 4 , Acabar operação : 5 ");
+    print("operações possiveis: Adicionar nome : 1 , Retirar nome: 2 , Buscar nome : 3 , Exibir lista : 4 , Acabar operação : 5 , buscar por numero : 6 ");
     String? valor = stdin.readLineSync();
 
     switch (valor){
@@ -43,6 +43,17 @@ void main() {
       case "5" :
       print("Adeus!");
       operacao = false;
+      break;
+      case "6" :
+      print("Qual número voce quer pesquisar ?");
+      String? number = stdin.readLineSync();
+      int numeroreal = int.parse(number!);
+
+      if(numeroreal >= 0 && numeroreal < nomes.length){
+        print("Buscou por:     ${nomes[numeroreal]}");
+      } else { 
+        print("Esse índice esta fora da lista!");
+      }
       break;
       
       default:
