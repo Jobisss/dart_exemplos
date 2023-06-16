@@ -26,7 +26,7 @@ class Pedidos{
 
   Pedidos({String? nome, List<String>? produtos}) {
     final random = Random();
-    int numeroAleatorio = random.nextInt(1000); // Gera um número entre 0 e 999
+    int numeroAleatorio = random.nextInt(101); // Gera um número entre 0 e 100
     this.numero = numeroAleatorio.toString().padLeft(3, '0');
     this.nome = nome;
     this.produtos = produtos ?? [];
@@ -49,7 +49,9 @@ class Pedidos{
     }
 
   }
-  void exibirPedido(){
-    print(this.toString());
+  void exibirPedido() {
+    for (String produto in produtos!) {
+      print("-- $produto");
+    }
   }
 }
